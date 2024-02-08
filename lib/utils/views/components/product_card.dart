@@ -26,12 +26,13 @@ Widget productCard({
           ),
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.green.shade100,
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.teal.shade100,
             boxShadow: const [
               BoxShadow(
-                color: Colors.pinkAccent,
+                color: Colors.brown,
                 blurRadius: 7,
-                offset: Offset(3, 3),
+                offset: Offset(3, 5),
               ),
             ],
           ),
@@ -41,6 +42,7 @@ Widget productCard({
               Container(
                 height: size.height * 0.15,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
                   color: Colors.grey.shade200,
                   image: DecorationImage(
                     image: NetworkImage(

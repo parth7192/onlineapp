@@ -19,7 +19,7 @@ class _DetailPageState extends State<DetailPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail Page"),
+        title: Text(product['title']),
       ),
       body: Column(
         children: [
@@ -76,6 +76,30 @@ class _DetailPageState extends State<DetailPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                Text(
+                  product['description'],
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "\$ ${(product['price'].toString())}",
+                      style: const TextStyle(
+                        decoration: TextDecoration.lineThrough,
+                        decorationThickness: 3,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  "\$${product['price'] - (product['price'] * product['discountPercentage'] / 100)}",
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           ),
@@ -87,14 +111,14 @@ class _DetailPageState extends State<DetailPage> {
           if (cartItems.contains(product)) {
             cartItems.remove(product);
             snackBar = SnackBar(
-              content: Text("${product['title']} removed from the CART !!"),
+              content: Text("${product['title']} Item Removed to CART 😐"),
               backgroundColor: Colors.red,
               behavior: SnackBarBehavior.floating,
             );
           } else {
             cartItems.add(product);
             snackBar = SnackBar(
-              content: Text("${product['title']} added to the CART !!"),
+              content: Text("${product['title']} Item added to CART 🤩"),
               backgroundColor: Colors.green,
               behavior: SnackBarBehavior.floating,
             );
